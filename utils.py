@@ -44,10 +44,11 @@ class DocumentProcessor:
         text = self.document
         while text:
             boundary = min(len(text), chunk_size)
-            # Search for sentence end near the boundary
+            # Search for the last sentence end near the boundary
             if boundary < len(text):
-                match = re.search(r"\.\n|[\.!?] [A-Z]", text[:boundary + 50])
-                boundary = match.start() + 1 if match else boundary
+                match = list(re.finditer(r"\.\n|[\.!?] [A-Z]", text[:boundary + 50]))
+                if match:
+                    boundary = match[-1].start() + 1
             chunks.append(text[:boundary].strip())
             text = text[boundary:]
         return chunks

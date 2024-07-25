@@ -118,11 +118,11 @@ if st.session_state.article:
         )
         st.session_state.file_ready = False
         st.session_state.article = None
-        article_upload = None
 
     # Cleanup temporary files
     if os.path.exists(f"/tmp/{article_upload.name}"):
         os.remove(f"/tmp/{article_upload.name}")
+        article_upload = None
     if os.path.exists("/tmp/artykul_zredagowany.docx"):
         os.remove("/tmp/artykul_zredagowany.docx")
     chunks_dir = "/tmp/chunks"
