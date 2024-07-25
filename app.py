@@ -66,7 +66,12 @@ if 'article' not in st.session_state:
     st.session_state.article = None
 
 st.title("AI Editor")
-st.write("Wgraj z dysku plik z artykułem. Przygotuję dla ciebie zredagowaną wersję, propozycje tytułów, leadów i wyimów.")
+# St.write but with a larger font and italics
+st.write("#### © 2024 Jarema Piekutowski")
+st.write((
+    "Wgraj z dysku plik z artykułem. Przygotuję dla ciebie zredagowaną wersję, "
+    "propozycje tytułów, leadów i wyimów.")
+)
 
 st.markdown(hide_label, unsafe_allow_html=True)
 
